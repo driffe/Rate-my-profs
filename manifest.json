@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Rate My Professor Quick View",
+  "version": "1.0",
+  "description": "드래그한 교수님의 Rate My Professor 정보를 빠르게 확인할 수 있습니다.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.ratemyprofessors.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/sjsu16.jpg",
+      "48": "images/sjsu48.jpg",
+      "128": "images/sjsu128.jpg"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+} 

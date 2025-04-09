@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .instructions {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .toggle-label {
+            font-weight: bold;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #2c3e50;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        .save-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .save-button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="title">Rate My Professor Quick View</h2>
+    <div class="input-group">
+        <label for="university">대학교 이름:</label>
+        <input type="text" id="university" placeholder="예: San Jose State University">
+    </div>
+    <div class="toggle-container">
+        <span class="toggle-label">자동 팝업 활성화</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="autoPopupToggle">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="instructions">
+        <p>교수님의 이름을 드래그하면 Rate My Professor 정보를 확인할 수 있습니다.</p>
+        <p>표시되는 정보:</p>
+        <ul>
+            <li>평점</li>
+            <li>다시 수강할 의향</li>
+            <li>난이도</li>
+        </ul>
+    </div>
+    <button id="saveSettings" class="save-button">설정 저장</button>
+    <script src="popup.js"></script>
+</body>
+</html> 
